@@ -23,10 +23,10 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; font-weight: 700; 
   position: absolute; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
 }
-.script { font-family: var(--font-script); font-size: 1.6rem; color: var(--pink); line-height: 1; }
-.script--light { color: var(--yellow); }
+.script { font-family: var(--font-script); font-size: 1.6rem; color: var(--blush); line-height: 1; }
+.script--light { color: var(--honey-light); }
 
-:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; border-radius: 6px; }
+:focus-visible { outline: 3px solid var(--cocoa); outline-offset: 2px; border-radius: 6px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

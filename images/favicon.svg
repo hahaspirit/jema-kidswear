@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -14 108 108">
+  <defs><mask id="eye" maskUnits="userSpaceOnUse" x="-50" y="-50" width="300" height="250">
+    <rect x="-50" y="-50" width="300" height="250" fill="#fff"/>
+    <circle cx="69" cy="22" r="3.4" fill="#000"/>
+  </mask></defs>
+  <circle cx="52" cy="40" r="54" fill="#E09A2D"/>
+  <g transform="translate(3 -6)">
+    <g fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M50 30 V74 a14 14 0 0 1 -28 0"/>
+      <path d="M53 15 L49 5 M66 13 L67 3" stroke-width="6"/>
+      <path d="M45 22 Q38 16 33 18" stroke-width="6.5"/>
+    </g>
+    <circle cx="48.5" cy="2.07" r="6.02" fill="#fff"/>
+    <circle cx="67.5" cy="0.07" r="6.02" fill="#fff"/>
+    <path mask="url(#eye)" fill="#fff" d="M44.5 31 Q44.5 12 62 12 H75 Q88 12 88 24 Q88 35 76 35 H52 Q44.5 35 44.5 31 Z"/>
+  </g>
+</svg>

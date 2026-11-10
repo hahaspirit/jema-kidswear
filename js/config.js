@@ -6,21 +6,60 @@
    ===================================================================== */
 window.STORE_CONFIG = {
   storeName: "Jema Kidswear",
-  pageTitle: "Jema Kidswear — Factory Outlet Baju Anak Branded",
-  logo: "images/logo.jpg",   // kosongkan ("") untuk menyembunyikan logo
-  about: "Jema Kidswear adalah factory outlet baju anak di Sukabumi. Kami menghadirkan koleksi brand favorit keluarga untuk si kecil sejak newborn hingga usia 16 tahun — dengan kualitas yang Bunda percaya dan harga khas outlet.",
+  pageTitle: "Jema Kidswear — Factory Outlet Baju & Sepatu Anak Branded",
+  tagline: "Little Outfit for a Brighter Tomorrow",
+  about: "Jema Kidswear adalah factory outlet baju dan sepatu anak branded di Sukabumi. Kami menghadirkan koleksi brand favorit keluarga untuk si kecil sejak newborn hingga usia 16 tahun — dengan kualitas yang Bunda percaya dan harga khas outlet.",
+
+  /* Warna logo (lihat juga css/tokens.css) */
+  logoColors: { main: "#E09A2D", sub: "#6B4A35", onDark: "#FFFFFF" },
 
   links: {
     shopee: "https://shopee.co.id/jemakidswear",
-    whatsapp: "6281234567890",                       // format 62…, tanpa + / 0 di depan
+    whatsapp: "6285775066136",                       // format 62…, tanpa + / 0 di depan
     whatsappMessage: "Halo Jema Kidswear, saya mau tanya produk 🙏",
     instagram: "https://www.instagram.com/jemakidswear/",
+    tiktok: "https://www.tiktok.com/@jema.kidswear",
+    maps: "https://maps.app.goo.gl/MM2GPk5J3fRpBFAh8",
+  },
+
+  /* Daftar sosial media (bagian "Selalu update!" dan footer).
+     key menentukan ikon & warna: instagram | tiktok | shopee | whatsapp | maps */
+  socials: [
+    { key: "instagram", label: "Instagram",   handle: "@jemakidswear" },
+    { key: "whatsapp",  label: "WhatsApp",    handle: "0857-7506-6136" },
+    { key: "shopee",    label: "Shopee",      handle: "Jemakidswear" },
+    { key: "tiktok",    label: "TikTok",      handle: "@jema.kidswear" },
+    { key: "maps",      label: "Google Maps", handle: "Jema Kidswear Factory Outlet" },
+  ],
+
+  location: {
+    script: "Mampir ke outlet kami",
+    name: "Jema Kidswear Factory Outlet",
+    address: "Kanahaya City 4 Blok A35, Limusnunggal, Kota Sukabumi",
+    note: "Mau lihat dan pegang langsung bahannya? Datang ke outlet kami. Supaya tidak menunggu, chat WhatsApp dulu untuk cek stok dan ukuran.",
+    /* Teks pencarian untuk peta yang ditampilkan di halaman */
+    mapQuery: "Jema Kidswear Factory Outlet, Kanahaya City 4, Limusnunggal, Sukabumi",
   },
 
   /* Link Google Sheets katalog. Cukup tempel link share biasa
      (akses: "Siapa saja yang memiliki link" → Viewer).
      Kosongkan ("") untuk memakai sampleProducts. */
   sheetUrl: "https://docs.google.com/spreadsheets/d/1n9Id9NKC9wP_Z4wZQBu6dy_pjpb6lmBjPGf6q4y1XqY/edit?usp=sharing",
+
+  /* Bagian katalog. Produk dibagi berdasarkan kolom "Tipe Produk" di sheet.
+     types: nilai Tipe Produk yang masuk ke bagian ini.
+     catchAll: true → juga menampung produk yang Tipe Produk-nya kosong/tidak dikenal.
+     Bagian tanpa produk otomatis disembunyikan. Tambah bagian baru (mis. Aksesoris) cukup di sini. */
+  catalogs: [
+    { id: "katalog", types: ["Baju"], catchAll: true,
+      script: "Newborn sampai 16 tahun", title: "Koleksi Baju",
+      subtitle: "Klik produk untuk langsung checkout di Shopee",
+      cta: "Lihat Semua Baju di Shopee →" },
+    { id: "sepatu", types: ["Sepatu"], tone: "soft",
+      script: "Langkah kecil, gaya besar", title: "Koleksi Sepatu",
+      subtitle: "Sepatu branded untuk si kecil. Kategori menunjukkan rentang ukuran.",
+      cta: "Lihat Semua Sepatu di Shopee →" },
+  ],
 
   images: {
     hero: "",     // contoh: "images/hero.png" (PNG transparan paling bagus)
@@ -29,29 +68,30 @@ window.STORE_CONFIG = {
 
   hero: {
     eyebrow: "Factory Outlet Sukabumi",
-    title: "Baju anak <mark>branded</mark>, harga <mark>outlet</mark>",
-    lead: "<strong>Cool Kid, Lee Cooper, Pitodito, OshKosh, Carter's</strong>, hingga <strong>H&amp;M</strong> — semua ada di sini untuk si kecil, dari newborn sampai 16 tahun. Kualitas brand yang Bunda percaya, dengan harga khas outlet.",
+    title: "Baju &amp; sepatu anak <mark>branded</mark>, harga <mark>outlet</mark>",
+    lead: "<strong>Cool Kids, Carter's, OshKosh B'gosh, Carhartt, H&amp;M, LC Waikiki</strong> dan brand favorit lainnya ada di sini, untuk si kecil dari newborn sampai 16 tahun. Kualitas brand yang Bunda percaya, dengan harga khas outlet.",
   },
 
-  /* Deretan brand di bawah kotak promo. Kosongkan [] untuk menyembunyikan. */
+  /* Deretan brand di bawah kotak kategori. Kosongkan [] untuk menyembunyikan. */
   brandsLabel: "Brand pilihan di outlet kami",
-  brands: ["Cool Kid", "Lee Cooper", "Pitodito", "OshKosh", "Carter's", "H&M"],
+  brands: ["Cool Kids", "Carter's", "OshKosh B'gosh", "Carhartt", "H&M", "LC Waikiki", "Lee Cooper", "Rodeo Jr", "Pitodito"],
 
-  /* Kotak promo di bawah hero.
-     size: "tall" (2 baris) atau "small". color: blue | pink | yellow | teal | purple
-     art: ilustrasi bawaan — baby | boy | girl | teen | priceTag (lihat js/illustrations.js)
+  /* Kotak kategori di bawah hero.
+     size: "tall" (2 baris) atau "small". color: sky | sage | blush | honey | cocoa
+     art: ilustrasi bawaan — baby | boy | girl | teen | shoe | priceTag (js/illustrations.js)
      image: path foto/PNG sendiri (mengalahkan art)
-     categories: daftar nilai kolom Kategori di sheet (harus sama persis).
-       Kalau diisi → klik kotak menyaring katalog + tampil jumlah produk.
-       Kalau tidak ada → klik kotak membuka `link` (default: toko Shopee). */
+     catalog: id bagian katalog yang dituju (default "katalog")
+     categories: nilai kolom Kategori di sheet. Kosong → tampilkan seluruh bagian katalog itu.
+     Tanpa catalog & categories → klik kotak membuka `link` (default: toko Shopee). */
   tiles: [
-    { size: "tall",  color: "blue",   script: "Langkah pertama",    title: "Newborn & Bayi", pill: "Newborn – 2 tahun", art: "baby",
-      categories: ["Newborn", "Bayi 1-2 th"] },
-    { size: "small", color: "purple", script: "Main seharian",      title: "Balita & Anak",  pill: "3 – 8 tahun",       art: "boy",
-      categories: ["Bayi 3-5 th", "Anak 6-8 th"] },
-    { size: "tall",  color: "pink",   script: "Makin percaya diri", title: "Kids & Teen",    pill: "8 – 16 tahun",      art: "teen",
-      categories: ["Anak 8-12 th", "Remaja 12-16 th"] },
-    { size: "small", color: "yellow", script: "Belanja hemat",      title: "Harga Outlet",   pill: "Branded tanpa harga butik", art: "priceTag" },
+    { size: "tall",  color: "sky",   script: "Langkah pertama",    title: "Newborn & Baby", pill: "Newborn – 24 bulan", art: "baby",
+      categories: ["Newborn", "Baby 3-24 m"] },
+    { size: "small", color: "sage",  script: "Main seharian",      title: "Kids",           pill: "2 – 8 tahun",        art: "boy",
+      categories: ["Kids 2-8 y"] },
+    { size: "tall",  color: "blush", script: "Makin percaya diri", title: "Junior",         pill: "8 – 16 tahun",       art: "teen",
+      categories: ["Junior 8-16 y"] },
+    { size: "small", color: "honey", script: "Langkah kecil",      title: "Sepatu Anak",    pill: "Ukuran 22 – 36",     art: "shoe",
+      catalog: "sepatu" },
   ],
 
   banner: {
@@ -64,7 +104,7 @@ window.STORE_CONFIG = {
 
   follow: {
     script: "Selalu update!",
-    text: "Ikuti Jema Kidswear di Shopee & Instagram untuk info restock, koleksi baru, dan promo spesial.",
+    text: "Ikuti Jema Kidswear untuk info restock, koleksi baru, dan promo spesial.",
   },
 
   /* Isi dengan ulasan ASLI pembeli. Kalau kosong, bagian testimoni disembunyikan.
@@ -74,20 +114,18 @@ window.STORE_CONFIG = {
   features: [
     { art: "tag", title: "Brand terpercaya", text: "Koleksi brand favorit keluarga" },
     { art: "coins", title: "Harga outlet", text: "Lebih hemat dari harga butik" },
-    { art: "growth", title: "Newborn – 16 tahun", text: "Lengkap untuk setiap tahap usia" },
+    { art: "growth", title: "Newborn – 16 tahun", text: "Baju & sepatu untuk setiap usia" },
     { art: "ruler", title: "Bantu pilih ukuran", text: "Konsultasi size via WhatsApp" },
   ],
 
   /* Data contoh untuk tampilan awal (dipakai kalau sheetUrl kosong / gagal dimuat).
      Formatnya sama dengan kolom di Google Sheets. */
   sampleProducts: [
-    { nama: "Setelan Kaos Anak Motif", harga: "69000",  kategori: "Setelan", link: "", foto: "" },
-    { nama: "Piyama Anak Katun",       harga: "75000",  kategori: "Piyama",  link: "", foto: "" },
-    { nama: "Dress Anak Perempuan",    harga: "85000",  kategori: "Dress",   link: "", foto: "" },
-    { nama: "Kaos Anak Basic",         harga: "39000",  kategori: "Atasan",  link: "", foto: "" },
-    { nama: "Celana Jogger Anak",      harga: "55000",  kategori: "Bawahan", link: "", foto: "" },
-    { nama: "Jumper Bayi",             harga: "59000",  kategori: "Bayi",    link: "", foto: "" },
-    { nama: "Kemeja Anak Laki-laki",   harga: "79000",  kategori: "Atasan",  link: "", foto: "" },
-    { nama: "Setelan Lebaran Anak",    harga: "129000", kategori: "Setelan", link: "", foto: "" },
+    { nama: "Kaos Lengan Pendek", tipe: "Baju",   kategori: "Newborn",       harga: "79000",  link: "", foto: "" },
+    { nama: "Jumpsuit",           tipe: "Baju",   kategori: "Baby 3-24 m",   harga: "79000",  link: "", foto: "" },
+    { nama: "Dress Pendek",       tipe: "Baju",   kategori: "Kids 2-8 y",    harga: "79000",  link: "", foto: "" },
+    { nama: "Kemeja",             tipe: "Baju",   kategori: "Junior 8-16 y", harga: "79000",  link: "", foto: "" },
+    { nama: "Sepatu Casual",      tipe: "Sepatu", kategori: "Kids 22-28",    harga: "108000", link: "", foto: "" },
+    { nama: "Sepatu Sneakers",    tipe: "Sepatu", kategori: "Junior 29-36",  harga: "108000", link: "", foto: "" },
   ],
 };

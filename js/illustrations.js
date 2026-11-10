@@ -128,7 +128,7 @@ Jema.art = (() => {
       ${balloon(560, 120, 14, "#F07C7C")}
       ${heart(318, 46, 13, "#F07C7C")}
       ${heart(70, 120, 9, "#FFC531")}
-      ${heart(590, 210, 8, "#9A7FD6")}
+      ${heart(590, 210, 8, "#8DB89A")}
       ${shadow(112, 392, 48)}${shadow(312, 388, 48)}${shadow(512, 392, 48)}
       <g transform="translate(12 110)">${kid(CAST.boy)}</g>
       <g transform="translate(212 80)">${kid(CAST.girl)}</g>
@@ -168,21 +168,44 @@ Jema.art = (() => {
       <ellipse cx="40" cy="36" rx="14" ry="5.5" fill="#E89B2E"/><rect x="26" y="20" width="28" height="16" fill="#E89B2E"/><ellipse cx="40" cy="20" rx="14" ry="5.5" fill="#FFD166"/>${heart(40, 20, 3.4, "#F07C7C")}`),
     growth: icon(`<circle cx="14" cy="38" r="5" fill="#F5A3A0"/><rect x="9" y="44" width="10" height="12" rx="4" fill="#F07C7C"/>
       <circle cx="32" cy="27" r="6" fill="#F5A3A0"/><rect x="26" y="34" width="12" height="22" rx="5" fill="#5DBB9B"/>
-      <circle cx="51" cy="14" r="6.5" fill="#F5A3A0"/><rect x="44.5" y="22" width="13" height="34" rx="5.5" fill="#9A7FD6"/>
+      <circle cx="51" cy="14" r="6.5" fill="#F5A3A0"/><rect x="44.5" y="22" width="13" height="34" rx="5.5" fill="#8DB89A"/>
       <path d="M6 58 H60" stroke="#2F4858" stroke-width="3" stroke-linecap="round"/>`),
     ruler: icon(`<circle cx="22" cy="30" r="15" fill="#7CC4F0"/><circle cx="22" cy="30" r="5" fill="#fff"/>
       <path d="M30 41 H58 V51 H24 Q30 48 30 41 Z" fill="#FFC531"/>
       <path d="M36 41 v5 M42 41 v3 M48 41 v5 M54 41 v3" stroke="#2F4858" stroke-width="2" stroke-linecap="round"/>`),
   };
 
+  /* Sepatu sneakers flat (kotak kategori & placeholder produk sepatu) */
+  const shoe = (align = "xMidYMax") => wrap("6 30 190 122", `
+    ${shadow(102, 142, 74)}
+    <path d="M28 118 Q24 84 44 70 L70 52 Q80 46 88 54 L120 86 Q150 92 170 100 Q184 106 182 118 Z" fill="#F07C7C"/>
+    <path d="M40 72 Q52 56 72 50 Q66 64 54 74 Z" fill="#B4473F"/>
+    <path d="M150 95 Q178 100 182 118 H146 Q145 104 150 95 Z" fill="${P.white}" opacity=".92"/>
+    <path d="M58 106 Q90 88 124 104" fill="none" stroke="#FFD166" stroke-width="7" stroke-linecap="round"/>
+    <path d="M82 62 L97 56 M92 72 L107 66 M102 82 L117 76" stroke="${P.white}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M22 118 H178 Q186 118 186 126 Q186 136 174 136 H30 Q16 136 16 126 Q16 118 22 118 Z" fill="${P.white}"/>
+    <path d="M24 127 H178" stroke="#E8D9C4" stroke-width="2.5" stroke-dasharray="7 6"/>`, align);
+
+  /* Ikon sosial media (24×24, warna mengikuti currentColor) */
+  const s24 = (inner) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${inner}</svg>`;
+  const social = {
+    instagram: s24(`<g fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/></g><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/>`),
+    tiktok: s24(`<path fill="currentColor" d="M14.2 2.5h3.1a4.6 4.6 0 0 0 4.2 4.2v3.2a7.6 7.6 0 0 1-4.2-1.4v6.6a6.3 6.3 0 1 1-6.3-6.3h.6v3.3a3 3 0 1 0 2.6 3V2.5z"/>`),
+    whatsapp: s24(`<path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/>`),
+    shopee: s24(`<path fill="currentColor" d="M5.5 7.5h13l-.9 12.2a1.5 1.5 0 0 1-1.5 1.3H7.9a1.5 1.5 0 0 1-1.5-1.3z"/><path d="M8.8 7.5a3.2 3.2 0 0 1 6.4 0" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14.3 11.3c-.6-.6-1.5-.9-2.4-.8-1.1.1-1.8.8-1.7 1.6.2 1.7 4.2 1 4.2 3.1 0 .9-.9 1.6-2.1 1.6-1 0-1.9-.4-2.5-1" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>`),
+    maps: s24(`<path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.7" fill="#fff"/>`),
+    home: s24(`<path fill="currentColor" d="M3.5 11 12 3.8l8.5 7.2v9a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/>`),
+  };
+
   /* Placeholder kartu produk tanpa foto */
   const tee = () => wrap("0 0 100 100", `
-    <path d="M30 24 L42 16 Q50 24 58 16 L70 24 L82 40 L70 46 V84 Q70 86 68 86 H32 Q30 86 30 84 V46 L18 40 Z" fill="#CDBDF0"/>
+    <path d="M30 24 L42 16 Q50 24 58 16 L70 24 L82 40 L70 46 V84 Q70 86 68 86 H32 Q30 86 30 84 V46 L18 40 Z" fill="#F3D3A8"/>
     <path d="M42 16 Q50 26 58 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
     ${heart(50, 54, 6, "#fff")}`, "xMidYMid");
 
   return {
-    kid, hero, baby, gift, priceTag, tee, icons,
+    kid, hero, baby, gift, priceTag, tee, icons, social,
+    shoe: () => shoe(), shoePlaceholder: () => shoe("xMidYMid"),
     boy: () => single("kidTile"),
     teen: () => single("teen"),
     girl: () => single("girl"),

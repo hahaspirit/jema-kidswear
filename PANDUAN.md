@@ -12,9 +12,12 @@ Semua produk di website diambil dari **Google Sheets**. Cukup edit sheet, websit
 | **Harga** | ✅ | Angka saja, contoh `69000` |
 | **Link Shopee** | ✅ | Link produk di Shopee |
 | **Foto** | ✅ | Link foto. **Boleh lebih dari satu** (lihat cara di bawah) |
-| Kategori | opsional | Pakai nama yang sudah ada: `Newborn`, `Bayi 1-2 th`, `Bayi 3-5 th`, `Anak 6-8 th`, `Anak 8-12 th`, `Remaja 12-16 th`. Muncul sebagai tombol filter dan dihitung di kotak warna-warni |
+| Tipe Produk | ✅ | `Baju` atau `Sepatu`. Menentukan produk tampil di **Koleksi Baju** atau **Koleksi Sepatu**. Kosong = masuk Koleksi Baju |
+| Kategori | opsional | Baju: `Newborn`, `Baby 3-24 m`, `Kids 2-8 y`, `Junior 8-16 y`. Sepatu: rentang ukuran, mis. `Kids 22-28`, `Junior 29-36`. Muncul sebagai tombol filter |
 
-> Kategori baru (nama lain) tetap muncul sebagai tombol filter, tapi supaya masuk ke kotak warna-warni di atas, minta developer menambahkannya di `tiles` pada `js/config.js`.
+> Kotak warna-warni di atas katalog menghitung baju dari kategori `Newborn`, `Baby 3-24 m`, `Kids 2-8 y`, `Junior 8-16 y` — tulis persis seperti itu (huruf besar/kecil boleh beda). Kategori baru tetap muncul sebagai tombol filter; supaya ikut masuk kotak warna-warni, minta developer menambahkannya di `tiles` pada `js/config.js`.
+>
+> Bagian katalog yang belum punya produk (mis. belum ada sepatu) otomatis disembunyikan. Tipe produk baru (mis. `Aksesoris`) bisa dibuatkan bagian sendiri lewat `catalogs` di `js/config.js`.
 
 - **Tambah produk** → tambah baris baru.
 - **Hapus produk** → hapus barisnya.
