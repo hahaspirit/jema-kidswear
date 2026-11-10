@@ -1,0 +1,36 @@
+/* Design tokens — ubah warna/brand di sini saja */
+:root {
+  /* Brand palette */
+  --purple: #9a7fd6;
+  --purple-dark: #7c61bd;
+  --yellow: #ffc531;
+  --orange: #ff8a34;
+  --orange-dark: #f27311;
+  --teal: #38c3bd;
+  --pink: #f0628f;
+  --blue: #7cc4f0;
+  --shopee: #ee4d2d;
+  --shopee-dark: #d73f20;
+  --whatsapp: #25d366;
+
+  /* Surfaces & text */
+  --cream: #fff9ee;
+  --surface: #ffffff;
+  --soft: #f7f3ff;
+  --ink: #3a3350;
+  --muted: #7a7390;
+  --line: #eee7f7;
+
+  /* Type */
+  --font-body: "Nunito", system-ui, sans-serif;
+  --font-head: "Baloo 2", "Nunito", system-ui, sans-serif;
+  --font-script: "Caveat", cursive;
+
+  /* Shape & rhythm */
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --shadow: 0 14px 36px -18px rgba(58, 51, 80, .35);
+  --container: 1180px;
+  --gutter: 20px;
+}
