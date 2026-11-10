@@ -39,17 +39,19 @@ window.STORE_CONFIG = {
 
   /* Kotak promo di bawah hero.
      size: "tall" (2 baris) atau "small". color: blue | pink | yellow | teal | purple
+     art: ilustrasi bawaan — baby | boy | girl | teen | priceTag (lihat js/illustrations.js)
+     image: path foto/PNG sendiri (mengalahkan art)
      categories: daftar nilai kolom Kategori di sheet (harus sama persis).
        Kalau diisi → klik kotak menyaring katalog + tampil jumlah produk.
        Kalau tidak ada → klik kotak membuka `link` (default: toko Shopee). */
   tiles: [
-    { size: "tall",  color: "blue",   script: "Langkah pertama",    title: "Newborn & Bayi", pill: "Newborn – 2 tahun", emoji: "👶",
+    { size: "tall",  color: "blue",   script: "Langkah pertama",    title: "Newborn & Bayi", pill: "Newborn – 2 tahun", art: "baby",
       categories: ["Newborn", "Bayi 1-2 th"] },
-    { size: "small", color: "purple", script: "Main seharian",      title: "Balita & Anak",  pill: "3 – 8 tahun",       emoji: "🧒",
+    { size: "small", color: "purple", script: "Main seharian",      title: "Balita & Anak",  pill: "3 – 8 tahun",       art: "boy",
       categories: ["Bayi 3-5 th", "Anak 6-8 th"] },
-    { size: "tall",  color: "pink",   script: "Makin percaya diri", title: "Kids & Teen",    pill: "8 – 16 tahun",      emoji: "👧",
+    { size: "tall",  color: "pink",   script: "Makin percaya diri", title: "Kids & Teen",    pill: "8 – 16 tahun",      art: "teen",
       categories: ["Anak 8-12 th", "Remaja 12-16 th"] },
-    { size: "small", color: "yellow", script: "Belanja hemat",      title: "Harga Outlet",   pill: "Branded tanpa harga butik", emoji: "🏷️" },
+    { size: "small", color: "yellow", script: "Belanja hemat",      title: "Harga Outlet",   pill: "Branded tanpa harga butik", art: "priceTag" },
   ],
 
   banner: {
@@ -70,10 +72,10 @@ window.STORE_CONFIG = {
   testimonials: [],
 
   features: [
-    { icon: "🏷️", title: "Brand terpercaya", text: "Koleksi brand favorit keluarga" },
-    { icon: "💰", title: "Harga outlet", text: "Lebih hemat dari harga butik" },
-    { icon: "👶", title: "Newborn – 16 tahun", text: "Lengkap untuk setiap tahap usia" },
-    { icon: "📏", title: "Bantu pilih ukuran", text: "Konsultasi size via WhatsApp" },
+    { art: "tag", title: "Brand terpercaya", text: "Koleksi brand favorit keluarga" },
+    { art: "coins", title: "Harga outlet", text: "Lebih hemat dari harga butik" },
+    { art: "growth", title: "Newborn – 16 tahun", text: "Lengkap untuk setiap tahap usia" },
+    { art: "ruler", title: "Bantu pilih ukuran", text: "Konsultasi size via WhatsApp" },
   ],
 
   /* Data contoh untuk tampilan awal (dipakai kalau sheetUrl kosong / gagal dimuat).

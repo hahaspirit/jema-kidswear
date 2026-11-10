@@ -86,7 +86,7 @@ Jema.catalog = (() => {
           <a class="gallery__slide" href="${escapeHtml(p.link)}" target="_blank" rel="noopener" tabindex="${i ? -1 : 0}">
             <img src="${escapeHtml(src)}" alt="${escapeHtml(p.name)} — foto ${i + 1}" loading="lazy" referrerpolicy="no-referrer">
           </a>`).join("")
-      : `<a class="gallery__slide" href="${escapeHtml(p.link)}" target="_blank" rel="noopener"><div class="placeholder" aria-hidden="true">👕</div></a>`;
+      : `<a class="gallery__slide" href="${escapeHtml(p.link)}" target="_blank" rel="noopener"><div class="placeholder" aria-hidden="true">${Jema.art?.tee() || "👕"}</div></a>`;
 
     const multi = p.photos.length > 1;
     return `

@@ -56,8 +56,8 @@
 .hero__title mark { background: none; color: var(--orange); }
 .hero__lead { color: var(--muted); font-size: 1.08rem; max-width: 480px; margin-bottom: 28px; }
 .hero__lead strong { color: var(--purple-dark); font-weight: 800; }
-.hero__media { aspect-ratio: 1 / 1; max-width: 460px; justify-self: center; width: 100%; display: grid; place-items: center; }
-.hero__media img { width: 100%; height: 100%; object-fit: contain; }
+.hero__media { max-width: 560px; justify-self: center; width: 100%; display: grid; place-items: center; }
+.hero__media img, .hero__media svg { width: 100%; height: auto; object-fit: contain; }
 
 /* ========== Promo tiles ========== */
 .tiles {
@@ -82,7 +82,10 @@
 .tile__title { font-size: clamp(1.4rem, 2.4vw, 1.9rem); text-transform: uppercase; margin: 4px 0 8px; }
 .tile__pill { align-self: flex-start; background: rgba(255,255,255,.9); color: var(--ink); font-size: .78rem; font-weight: 700; padding: 3px 12px; border-radius: 999px; }
 .tile__media { position: absolute; right: -10px; bottom: -10px; width: 62%; aspect-ratio: 1; display: grid; place-items: end; }
-.tile__media img { width: 100%; height: 100%; object-fit: contain; object-position: bottom right; }
+.tile__media img, .tile__media svg { width: 100%; height: 100%; object-fit: contain; object-position: bottom right; }
+.tile__media svg { padding: 0 6% 4% 0; }
+.tile > :not(.tile__media) { position: relative; z-index: 1; }
+.tile:not(.tile--tall) .tile__media { width: 42%; height: 82%; aspect-ratio: auto; }
 .tile__emoji { position: absolute; right: 0; bottom: 0; font-size: 5rem; line-height: 1; padding: 0 20px 20px 0; }
 .tile--tall .tile__emoji { font-size: 7.5rem; }
 .tile__cta { margin-top: auto; position: relative; font-family: var(--font-head); font-weight: 700; font-size: .95rem; }
@@ -99,7 +102,7 @@
 .banner__text h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin: 6px 0 10px; }
 .banner__text p:not(.script) { opacity: .92; margin-bottom: 22px; max-width: 420px; }
 .banner__media { position: relative; z-index: 1; height: 100%; display: grid; place-items: center; padding: 24px; }
-.banner__media img { max-height: 300px; object-fit: contain; }
+.banner__media img, .banner__media svg { width: 100%; max-width: 300px; max-height: 260px; object-fit: contain; }
 
 /* ========== Follow band ========== */
 .follow-band {
@@ -121,6 +124,7 @@
 /* ========== Features ========== */
 .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
 .feature__icon { width: 72px; height: 72px; margin: 0 auto 12px; border-radius: 22px; display: grid; place-items: center; font-size: 2rem; }
+.feature__icon svg { width: 46px; height: 46px; }
 .feature:nth-child(4n+1) .feature__icon { background: #fff1cf; }
 .feature:nth-child(4n+2) .feature__icon { background: #ffe1ea; }
 .feature:nth-child(4n+3) .feature__icon { background: #d9f4f2; }
@@ -146,7 +150,9 @@
 @media (max-width: 760px) {
   .header-top { flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 10px; row-gap: 10px; }
   .search { order: 3; flex-basis: 100%; max-width: none; }
-  .logo { font-size: 1.25rem; gap: 8px; }
+  .header-top { column-gap: 10px; }
+  .logo { font-size: 1.15rem; gap: 8px; }
+  .header-top .btn { padding: 8px 12px; }
   .logo__img { width: 40px; height: 40px; }
   .brands__list li { font-size: .95rem; padding: 8px 16px; }
   .header-top .btn { margin-left: auto; }
@@ -159,8 +165,7 @@
 
   .hero { padding: 32px 0 48px; }
   .hero__inner { grid-template-columns: 1fr; text-align: center; }
-  .hero__media { order: -1; max-width: 200px; }
-  .placeholder--hero { font-size: 6rem; }
+  .hero__media { order: -1; max-width: 380px; }
   .hero__lead { margin-left: auto; margin-right: auto; }
   .hero .btn-row { justify-content: center; }
   .hero__blob--right { width: 360px; height: 360px; right: -140px; bottom: -200px; }
@@ -168,7 +173,9 @@
   .tiles { grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; gap: 12px; }
   .tile { padding: 16px; }
   .tile--tall { grid-row: span 2; }
-  .tile__media { width: 45%; right: 0; bottom: 0; }
+  /* Ilustrasi duduk di atas baris "Lihat N produk" supaya tidak menimpa teks */
+  .tile__media { width: 62%; right: 0; bottom: 30px; }
+  .tile:not(.tile--tall) .tile__media { width: 40%; height: 52%; bottom: 30px; }
   .tile__pill { position: relative; z-index: 1; font-size: .72rem; }
   .tile__emoji { font-size: 2.6rem; padding: 0 12px 12px 0; }
   .tile--tall .tile__emoji { font-size: 3.4rem; }

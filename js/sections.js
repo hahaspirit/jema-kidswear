@@ -44,11 +44,17 @@ Jema.sections = (() => {
     });
   }
 
-  function fillImageSlot(name, src, alt) {
+  /* Foto dari config kalau ada; kalau tidak, ilustrasi bawaan (Jema.art[fallbackArt]) */
+  function fillImageSlot(name, src, alt, fallbackArt) {
     const slot = document.querySelector(`[data-slot="${name}"]`);
-    if (!slot || !src) return;
-    slot.innerHTML = `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}">`;
+    if (!slot) return;
+    if (src) slot.innerHTML = `<img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}">`;
+    else if (Jema.art?.[fallbackArt]) slot.innerHTML = Jema.art[fallbackArt]();
   }
+
+  /* Ilustrasi berdasarkan nama di config ("baby", "boy", …); emoji hanya sebagai cadangan */
+  const artOrEmoji = (art, emoji, cls) =>
+    Jema.art?.[art] ? Jema.art[art]() : `<span class="${cls}">${escapeHtml(emoji || "")}</span>`;
 
   /* Kotak dengan `categories` → menyaring katalog. Tanpa `categories` → buka link (default Shopee). */
   function renderTiles(config) {
@@ -66,7 +72,7 @@ Jema.sections = (() => {
         ${t.pill ? `<span class="tile__pill">${escapeHtml(t.pill)}</span>` : ""}
         <span class="tile__cta">${filters ? "Lihat produk" : "Belanja"}</span>
         <span class="tile__media" aria-hidden="true">
-          ${t.image ? `<img src="${escapeHtml(t.image)}" alt="">` : `<span class="tile__emoji">${escapeHtml(t.emoji || "")}</span>`}
+          ${t.image ? `<img src="${escapeHtml(t.image)}" alt="">` : artOrEmoji(t.art, t.emoji, "tile__emoji")}
         </span>
       </a>`;
     }).join("");
@@ -91,7 +97,7 @@ Jema.sections = (() => {
   function renderFeatures(config) {
     document.getElementById("features").innerHTML = (config.features || []).map((f) => `
       <div class="feature">
-        <div class="feature__icon" aria-hidden="true">${escapeHtml(f.icon)}</div>
+        <div class="feature__icon" aria-hidden="true">${Jema.art?.icons?.[f.art] || escapeHtml(f.icon || "")}</div>
         <h3>${escapeHtml(f.title)}</h3>
         <p>${escapeHtml(f.text)}</p>
       </div>`).join("");
@@ -139,8 +145,8 @@ Jema.sections = (() => {
     bindLogo(config);
     bindLinks(config);
     renderBrands(config);
-    fillImageSlot("heroImage", config.images?.hero, config.storeName);
-    fillImageSlot("bannerImage", config.images?.banner, "");
+    fillImageSlot("heroImage", config.images?.hero, config.storeName, "hero");
+    fillImageSlot("bannerImage", config.images?.banner, "", "gift");
     renderTiles(config);
     renderFeatures(config);
     renderTestimonials(config);
